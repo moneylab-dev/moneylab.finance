@@ -1,180 +1,144 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
-  <title>MoneyLab.Finance – Web3 Business Studio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MoneyLab.Finance</title>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
       font-family: 'Comfortaa', sans-serif;
+      box-sizing: border-box;
     }
     body {
+      margin: 0;
+      padding: 0;
+      background: #f3f3f3;
+      color: #222;
+    }
+    header, section, footer {
+      padding: 2rem;
+      text-align: center;
+    }
+    nav {
+      background: #000;
+      color: white;
       display: flex;
-      min-height: 100vh;
-      background: #f4f4f4;
-      color: #333;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      flex-wrap: wrap;
     }
-    .sidebar {
-      background: #1c1c1c;
-      color: #fff;
-      width: 220px;
-      padding: 2rem 1rem;
-      flex-shrink: 0;
-    }
-    .sidebar h2 {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      color: #f7931a;
-    }
-    .sidebar nav a {
-      display: block;
-      margin-bottom: 1.2rem;
-      color: #ccc;
-      text-decoration: none;
+    nav select {
+      padding: 0.3rem;
       font-size: 1rem;
-      cursor: pointer;
     }
-    .sidebar nav a:hover { color: #fff; }
-    .main { flex: 1; padding: 2rem; }
-    header {
-      background: #fff;
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    }
-    header h1 { font-size: 2rem; color: #1c1c1c; margin-bottom: 0.5rem; }
-    header p { color: #555; }
-    section { margin-bottom: 2rem; }
-    section h2 {
-      font-size: 1.4rem;
-      margin-bottom: 1rem;
-      color: #f7931a;
-      border-bottom: 2px solid #f7931a33;
-      padding-bottom: 0.3rem;
+    h1, h2 {
+      margin: 1rem 0;
     }
     .grid {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
       gap: 1rem;
+      margin-top: 1rem;
     }
     a.box {
-      text-decoration: none;
-      color: inherit;
-      display: block;
-      background: #fff;
-      border: 1px solid #eee;
-      border-left: 5px solid #f7931a;
-      border-radius: 8px;
+      background: white;
+      border-radius: 10px;
       padding: 1rem;
-      flex: 1 1 calc(25% - 1rem);
-      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-      transition: 0.2s ease;
+      text-decoration: none;
+      color: #222;
+      border: 1px solid #ddd;
+      transition: 0.3s;
+      position: relative;
     }
     a.box:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      background: #eaeaea;
+    }
+    a.box::after {
+      content: "↗";
+      font-size: 0.8rem;
+      position: absolute;
+      top: 0.5rem;
+      right: 0.7rem;
+      opacity: 0.6;
     }
     footer {
-      text-align: center;
-      margin-top: 3rem;
-      color: #999;
+      background: #000;
+      color: white;
       font-size: 0.9rem;
     }
-    select {
-      width: 100%;
-      margin-top: 2rem;
-      padding: 0.5rem;
-      border-radius: 6px;
-      border: none;
-      font-size: 1rem;
-      background: #f7931a;
-      color: white;
-    }
-    @media (max-width: 1024px) { a.box { flex: 1 1 calc(33.3% - 1rem); } }
-    @media (max-width: 768px) {
-      .sidebar { display: none; }
-      a.box { flex: 1 1 calc(50% - 1rem); }
-    }
-    @media (max-width: 480px) { a.box { flex: 1 1 100%; } }
   </style>
 </head>
 <body>
-
-<div class="sidebar">
-  <h2 id="brand-name">MoneyLab</h2>
   <nav>
-    <a onclick="scrollToSection('home')">🏠 <span id="nav-home">Home</span></a>
-    <a onclick="scrollToSection('founderships')">🚀 <span id="nav-founders">Founderships</span></a>
-    <a onclick="scrollToSection('partnerships')">🤝 <span id="nav-partners">Partnerships</span></a>
-    <a onclick="scrollToSection('about')">ℹ️ <span id="nav-about">About</span></a>
-    <a onclick="scrollToSection('contact')">📬 <span id="nav-contact">Contact</span></a>
+    <div>
+      <span id="nav_home">Home</span> |
+      <span id="nav_founders">Founderships</span> |
+      <span id="nav_partners">Partnerships</span> |
+      <span id="nav_about">About</span> |
+      <span id="nav_contact">Contact</span>
+    </div>
+    <div>
+      <select onchange="changeLanguage(this.value)">
+        <option value="en">🌐 English</option>
+        <option value="fa">🇮🇷 فارسی</option>
+        <option value="ar">🇸🇦 العربية</option>
+        <option value="tr">🇹🇷 Türkçe</option>
+        <option value="id">🇮🇩 Bahasa Indonesia</option>
+        <option value="ur">🇵🇰 اردو</option>
+        <option value="fr">🇫🇷 Français</option>
+        <option value="sw">🌍 Kiswahili</option>
+        <option value="ru">🇷🇺 Русский</option>
+        <option value="es">🇪🇸 Español</option>
+        <option value="zh">🇨🇳 中文</option>
+        <option value="ja">🇯🇵 日本語</option>
+        <option value="ko">🇰🇷 한국어</option>
+      </select>
+    </div>
   </nav>
-  <select onchange="changeLanguage(this.value)">
-    <option value="en">🌐 English</option>
-    <option value="fa">🇮🇷 فارسی</option>
-    <option value="ar">🇸🇦 العربية</option>
-  </select>
-</div>
 
-<div class="main">
-  <header id="home">
-    <h1 id="header-title">MoneyLab.Finance</h1>
-    <p id="header-description">Since 2012, we’ve been building foundational tools and platforms in crypto, blockchain, and digital finance.</p>
+  <header>
+    <h1 id="header_title">MoneyLab.Finance</h1>
+    <p id="header_description">Since 2012, we’ve been building foundational tools and platforms in crypto, blockchain, and digital finance.</p>
   </header>
 
-  <section id="founderships">
-    <h2 id="title-founderships">Founderships</h2>
+  <section>
+    <h2 id="title_founderships">Founderships</h2>
     <div class="grid">
-      <a class="box" href="https://weseed.ir" target="_blank" title="Seed investment platform."><strong>weseed.ir 🔗</strong></a>
-      <a class="box" href="https://telebank.live" target="_blank" title="Decentralized telecom-bank project."><strong>telebank.live 🔗</strong></a>
-      <a class="box" href="https://tardiwallet.com" target="_blank" title="Secure crypto wallet infrastructure."><strong>tardiwallet.com 🔗</strong></a>
-      <a class="box" href="https://steellet.com" target="_blank" title="Smart payment wearables."><strong>steellet.com 🔗</strong></a>
-      <a class="box" href="https://rialchange.com" target="_blank" title="Crypto rial gateway."><strong>rialchange.com 🔗</strong></a>
-      <a class="box" href="https://metabank.live" target="_blank" title="Next-gen Web3 bank."><strong>metabank.live 🔗</strong></a>
-      <a class="box" href="https://luxiv.io" target="_blank" title="Luxury tokenized assets."><strong>luxiv.io 🔗</strong></a>
-      <a class="box" href="https://hoopaad.com" target="_blank" title="Culture-tech incubation."><strong>hoopaad.com 🔗</strong></a>
-      <a class="box" href="https://halalfi.ir" target="_blank" title="Sharia-compliant DeFi."><strong>halalfi.ir 🔗</strong></a>
-      <a class="box" href="https://cid.chat" target="_blank" title="Web3 private messenger."><strong>cid.chat 🔗</strong></a>
+      <a class="box" href="https://weseed.ir" target="_blank" title="WeSeed: Crowdfunding Protocol">WeSeed</a>
+      <a class="box" href="https://telebank.live" target="_blank" title="TeleBank: Crypto Banking on Telegram">TeleBank</a>
+      <a class="box" href="https://tardiwallet.com" target="_blank" title="TardiWallet: Privacy Wallet for EVM">TardiWallet</a>
+      <a class="box" href="https://steellet.com" target="_blank" title="Steellet: Secure Cold Wallet">Steellet</a>
+      <a class="box" href="https://rialchange.com" target="_blank" title="RialChange: Rial–Crypto Exchange Platform">RialChange</a>
     </div>
   </section>
 
-  <section id="partnerships">
-    <h2 id="title-partnerships">Partnerships</h2>
+  <section>
+    <h2 id="title_partnerships">Partnerships</h2>
     <div class="grid">
-      <a class="box" href="#" title="Transport & Infrastructure News Network."><strong>TINN.IR</strong></a>
-      <a class="box" href="#" title="Business projects in Oman."><strong>Oman</strong></a>
-      <a class="box" href="#" title="Strategic advisor."><strong>Mr. Inanlui</strong></a>
-      <a class="box" href="#" title="Virtual land and real-world meta assets."><strong>MetaReal</strong></a>
-      <a class="box" href="#" title="Iran Chamber of Commerce partner."><strong>ICC</strong></a>
-      <a class="box" href="#" title="International Holding partner."><strong>GEO Holding</strong></a>
-      <a class="box" href="#" title="Digital carpet ecosystem."><strong>Farsh Online</strong></a>
-      <a class="box" href="#" title="RWA-based blockchain network."><strong>DayaChain</strong></a>
-      <a class="box" href="#" title="Web3 banking unit."><strong>BitBank</strong></a>
+      <a class="box" href="https://metabank.live" target="_blank" title="MetaBank: DeFi Digital Bank">MetaBank</a>
+      <a class="box" href="https://luxiv.io" target="_blank" title="Luxiv: Tokenized Luxury Gifting">Luxiv</a>
+      <a class="box" href="https://hoopaad.com" target="_blank" title="Hoopaad: Blockchain Development Team">Hoopaad</a>
+      <a class="box" href="https://halalfi.ir" target="_blank" title="HalalFi: Shariah-Compliant DeFi">HalalFi</a>
+      <a class="box" href="https://cid.chat" target="_blank" title="CID.Chat: Decentralized Messenger">CID.Chat</a>
     </div>
   </section>
 
-  <section id="about">
-    <h2 id="title-about">About MoneyLab</h2>
-    <p id="about-text">MoneyLab is a venture studio building crypto-native infrastructure, startups, and digital public goods.</p>
+  <section>
+    <h2 id="title_about">About MoneyLab</h2>
+    <p id="about_text">MoneyLab is a venture studio building crypto-native infrastructure, startups, and digital public goods.</p>
   </section>
 
-  <section id="contact">
-    <h2 id="title-contact">Contact</h2>
-    <p>Email: hello@moneylab.finance</p>
+  <section>
+    <h2 id="title_contact">Contact</h2>
+    <p>Email: info@moneylab.finance</p>
   </section>
 
   <footer>
-    &copy; 2012–2025 <span id="footer-brand">MoneyLab.Finance</span>. All rights reserved.
+    <p id="footer_brand">MoneyLab.Finance</p>
   </footer>
-</div>
 
-<!-- ✅ External JS file from GitHub repo -->
-<script src="main.js"></script>
-
+  <script src="main.js"></script>
 </body>
 </html>
