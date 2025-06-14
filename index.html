@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MoneyLab.Finance – Web3 Business Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      min-height: 100vh;
+      background: #f4f4f4;
+      color: #333;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      background: #1c1c1c;
+      color: #fff;
+      width: 220px;
+      padding: 2rem 1rem;
+      flex-shrink: 0;
+    }
+
+    .sidebar h2 {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #f7931a;
+    }
+
+    .sidebar nav a {
+      display: block;
+      margin-bottom: 1.2rem;
+      color: #ccc;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .sidebar nav a:hover {
+      color: #fff;
+    }
+
+    /* Main content */
+    .main {
+      flex: 1;
+      padding: 2rem;
+    }
+
+    header {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    header h1 {
+      font-size: 2rem;
+      color: #1c1c1c;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      color: #555;
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    section h2 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: #f7931a;
+      border-bottom: 2px solid #f7931a33;
+      padding-bottom: 0.3rem;
+    }
+
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .box {
+      background: #fff;
+      border: 1px solid #eee;
+      border-left: 5px solid #f7931a;
+      border-radius: 8px;
+      padding: 1rem;
+      flex: 1 1 calc(25% - 1rem);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      transition: 0.2s ease;
+    }
+
+    .box:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .box strong {
+      color: #222;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      color: #999;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 1024px) {
+      .box {
+        flex: 1 1 calc(33.3% - 1rem);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        display: none;
+      }
+
+      .box {
+        flex: 1 1 calc(50% - 1rem);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .box {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <h2>MoneyLab</h2>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Founderships</a>
+      <a href="#">Partnerships</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </div>
+
+  <div class="main">
+    <header>
+      <h1>MoneyLab.Finance</h1>
+      <p>Since 2012, we’ve been building foundational tools and platforms in crypto, blockchain, and digital finance.</p>
+    </header>
+
+    <section>
+      <h2>Founderships</h2>
+      <div class="grid">
+        <div class="box"><strong>weseed.ir</strong></div>
+        <div class="box"><strong>telebank.live</strong></div>
+        <div class="box"><strong>tardiwallet.com</strong></div>
+        <div class="box"><strong>steellet.com</strong></div>
+        <div class="box"><strong>rialchange.com</strong></div>
+        <div class="box"><strong>metabank.live</strong></div>
+        <div class="box"><strong>luxiv.io</strong></div>
+        <div class="box"><strong>hoopaad.com</strong></div>
+        <div class="box"><strong>halalfi.ir</strong></div>
+        <div class="box"><strong>cid.chat</strong></div>
+        <div class="box"><strong>_Smart_Wearables</strong></div>
+        <div class="box"><strong>_SCF</strong></div>
+        <div class="box"><strong>_AL_MIZAN</strong></div>
+        <div class="box"><strong>_SATRAP</strong></div>
+        <div class="box"><strong>_The_Future_Institute</strong></div>
+        <div class="box"><strong>_Blockchain_Accounting</strong></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Partnerships</h2>
+      <div class="grid">
+        <div class="box"><strong>TINN.IR</strong></div>
+        <div class="box"><strong>Oman</strong></div>
+        <div class="box"><strong>Mr. Inanlui</strong></div>
+        <div class="box"><strong>MetaReal</strong></div>
+        <div class="box"><strong>ICC</strong></div>
+        <div class="box"><strong>GEO Holding</strong></div>
+        <div class="box"><strong>Farsh Online</strong></div>
+        <div class="box"><strong>DayaChain</strong></div>
+        <div class="box"><strong>BitBank</strong></div>
+      </div>
+    </section>
+
+    <footer>
+      &copy; 2012–2025 MoneyLab.Finance. All rights reserved.
+    </footer>
+  </div>
+
+</body>
+</html>
