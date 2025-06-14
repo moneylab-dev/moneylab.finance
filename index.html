@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+html_code = """<!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
@@ -13,60 +13,79 @@
     body {
       margin: 0;
       padding: 0;
-      background: #f3f3f3;
+      background: #f4f4f4;
       color: #222;
     }
-    header, section, footer {
-      padding: 2rem;
-      text-align: center;
-    }
     nav {
-      background: #000;
+      background: #111;
       color: white;
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 2rem;
-      flex-wrap: wrap;
     }
     nav select {
-      padding: 0.3rem;
-      font-size: 1rem;
+      padding: 0.4rem;
+      border-radius: 4px;
     }
-    h1, h2 {
-      margin: 1rem 0;
+    header {
+      background: #222;
+      color: #fff;
+      text-align: center;
+      padding: 3rem 2rem 2rem;
+    }
+    header h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+    header p {
+      font-size: 1.1rem;
+    }
+    section {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #111;
     }
     .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      display: flex;
+      flex-wrap: wrap;
       gap: 1rem;
-      margin-top: 1rem;
+      justify-content: center;
     }
-    a.box {
+    .box {
       background: white;
-      border-radius: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
       padding: 1rem;
+      width: 180px;
+      text-align: center;
       text-decoration: none;
       color: #222;
-      border: 1px solid #ddd;
-      transition: 0.3s;
       position: relative;
+      transition: 0.3s;
     }
-    a.box:hover {
-      background: #eaeaea;
+    .box:hover {
+      background: #f0f0f0;
     }
-    a.box::after {
+    .box::after {
       content: "↗";
       font-size: 0.8rem;
       position: absolute;
       top: 0.5rem;
       right: 0.7rem;
-      opacity: 0.6;
+      opacity: 0.5;
     }
     footer {
-      background: #000;
+      background: #111;
       color: white;
-      font-size: 0.9rem;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
     }
   </style>
 </head>
@@ -79,28 +98,26 @@
       <span id="nav_about">About</span> |
       <span id="nav_contact">Contact</span>
     </div>
-    <div>
-      <select onchange="changeLanguage(this.value)">
-        <option value="en">🌐 English</option>
-        <option value="fa">🇮🇷 فارسی</option>
-        <option value="ar">🇸🇦 العربية</option>
-        <option value="tr">🇹🇷 Türkçe</option>
-        <option value="id">🇮🇩 Bahasa Indonesia</option>
-        <option value="ur">🇵🇰 اردو</option>
-        <option value="fr">🇫🇷 Français</option>
-        <option value="sw">🌍 Kiswahili</option>
-        <option value="ru">🇷🇺 Русский</option>
-        <option value="es">🇪🇸 Español</option>
-        <option value="zh">🇨🇳 中文</option>
-        <option value="ja">🇯🇵 日本語</option>
-        <option value="ko">🇰🇷 한국어</option>
-      </select>
-    </div>
+    <select onchange="changeLanguage(this.value)">
+      <option value="en">🌐 English</option>
+      <option value="fa">🇮🇷 فارسی</option>
+      <option value="ar">🇸🇦 العربية</option>
+      <option value="tr">🇹🇷 Türkçe</option>
+      <option value="id">🇮🇩 Bahasa Indonesia</option>
+      <option value="ur">🇵🇰 اردو</option>
+      <option value="fr">🇫🇷 Français</option>
+      <option value="sw">🌍 Kiswahili</option>
+      <option value="ru">🇷🇺 Русский</option>
+      <option value="es">🇪🇸 Español</option>
+      <option value="zh">🇨🇳 中文</option>
+      <option value="ja">🇯🇵 日本語</option>
+      <option value="ko">🇰🇷 한국어</option>
+    </select>
   </nav>
 
   <header>
     <h1 id="header_title">MoneyLab.Finance</h1>
-    <p id="header_description">Since 2012, we’ve been building foundational tools and platforms in crypto, blockchain, and digital finance.</p>
+    <p id="header_description">Building foundational crypto platforms since 2012</p>
   </header>
 
   <section>
@@ -141,4 +158,11 @@
 
   <script src="main.js"></script>
 </body>
-</html>
+</html>"""
+
+# Save file
+html_path = "/mnt/data/index_v2.html"
+with open(html_path, "w") as f:
+    f.write(html_code)
+
+html_path
