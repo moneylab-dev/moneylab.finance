@@ -1,6 +1,3 @@
-# Writing the full main.js with all translations for 13 languages and support for updating direction and tooltips
-
-main_js_code = """
 const translations = {
   en: {
     nav_home: "Home",
