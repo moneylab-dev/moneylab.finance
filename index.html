@@ -12,14 +12,12 @@
       box-sizing: border-box;
       font-family: 'Comfortaa', sans-serif;
     }
-
     body {
       display: flex;
       min-height: 100vh;
       background: #f4f4f4;
       color: #333;
     }
-
     .sidebar {
       background: #1c1c1c;
       color: #fff;
@@ -27,13 +25,11 @@
       padding: 2rem 1rem;
       flex-shrink: 0;
     }
-
     .sidebar h2 {
       font-size: 1.2rem;
       margin-bottom: 2rem;
       color: #f7931a;
     }
-
     .sidebar nav a {
       display: block;
       margin-bottom: 1.2rem;
@@ -42,16 +38,8 @@
       font-size: 1rem;
       cursor: pointer;
     }
-
-    .sidebar nav a:hover {
-      color: #fff;
-    }
-
-    .main {
-      flex: 1;
-      padding: 2rem;
-    }
-
+    .sidebar nav a:hover { color: #fff; }
+    .main { flex: 1; padding: 2rem; }
     header {
       background: #fff;
       border-radius: 12px;
@@ -59,21 +47,9 @@
       margin-bottom: 2rem;
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
-
-    header h1 {
-      font-size: 2rem;
-      color: #1c1c1c;
-      margin-bottom: 0.5rem;
-    }
-
-    header p {
-      color: #555;
-    }
-
-    section {
-      margin-bottom: 2rem;
-    }
-
+    header h1 { font-size: 2rem; color: #1c1c1c; margin-bottom: 0.5rem; }
+    header p { color: #555; }
+    section { margin-bottom: 2rem; }
     section h2 {
       font-size: 1.4rem;
       margin-bottom: 1rem;
@@ -81,13 +57,11 @@
       border-bottom: 2px solid #f7931a33;
       padding-bottom: 0.3rem;
     }
-
     .grid {
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
     }
-
     a.box {
       text-decoration: none;
       color: inherit;
@@ -101,19 +75,16 @@
       box-shadow: 0 1px 3px rgba(0,0,0,0.04);
       transition: 0.2s ease;
     }
-
     a.box:hover {
       transform: translateY(-3px);
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
-
     footer {
       text-align: center;
       margin-top: 3rem;
       color: #999;
       font-size: 0.9rem;
     }
-
     select {
       width: 100%;
       margin-top: 2rem;
@@ -124,140 +95,171 @@
       background: #f7931a;
       color: white;
     }
-
-    @media (max-width: 1024px) {
-      a.box { flex: 1 1 calc(33.3% - 1rem); }
-    }
-
+    @media (max-width: 1024px) { a.box { flex: 1 1 calc(33.3% - 1rem); } }
     @media (max-width: 768px) {
       .sidebar { display: none; }
       a.box { flex: 1 1 calc(50% - 1rem); }
     }
-
-    @media (max-width: 480px) {
-      a.box { flex: 1 1 100%; }
-    }
+    @media (max-width: 480px) { a.box { flex: 1 1 100%; } }
   </style>
 </head>
 <body>
 
-  <div class="sidebar">
-    <h2 id="brand-name">MoneyLab</h2>
-    <nav>
-      <a onclick="scrollToSection('home')">🏠 <span id="nav-home">Home</span></a>
-      <a onclick="scrollToSection('founderships')">🚀 <span id="nav-founders">Founderships</span></a>
-      <a onclick="scrollToSection('partnerships')">🤝 <span id="nav-partners">Partnerships</span></a>
-      <a onclick="scrollToSection('about')">ℹ️ <span id="nav-about">About</span></a>
-      <a onclick="scrollToSection('contact')">📬 <span id="nav-contact">Contact</span></a>
-    </nav>
-    <select onchange="changeLanguage(this.value)">
-      <option value="en">🌐 English</option>
-      <option value="fa">🇮🇷 فارسی</option>
-      <option value="ar">🇸🇦 العربية</option>
-    </select>
-  </div>
+<div class="sidebar">
+  <h2 id="brand-name">MoneyLab</h2>
+  <nav>
+    <a onclick="scrollToSection('home')">🏠 <span id="nav-home">Home</span></a>
+    <a onclick="scrollToSection('founderships')">🚀 <span id="nav-founders">Founderships</span></a>
+    <a onclick="scrollToSection('partnerships')">🤝 <span id="nav-partners">Partnerships</span></a>
+    <a onclick="scrollToSection('about')">ℹ️ <span id="nav-about">About</span></a>
+    <a onclick="scrollToSection('contact')">📬 <span id="nav-contact">Contact</span></a>
+  </nav>
+  <select onchange="changeLanguage(this.value)">
+    <option value="en">🌐 English</option>
+    <option value="fa">🇮🇷 فارسی</option>
+    <option value="ar">🇸🇦 العربية</option>
+  </select>
+</div>
 
-  <div class="main">
-    <header id="home">
-      <h1 id="header-title">MoneyLab.Finance</h1>
-      <p id="header-description">Since 2012, we’ve been building foundational tools and platforms in crypto, blockchain, and digital finance.</p>
-    </header>
+<div class="main">
+  <header id="home">
+    <h1 id="header-title">MoneyLab.Finance</h1>
+    <p id="header-description">Since 2012, we’ve been building foundational tools and platforms in crypto, blockchain, and digital finance.</p>
+  </header>
 
-    <section id="founderships">
-      <h2 id="title-founderships">Founderships</h2>
-      <div class="grid">
-        <a class="box" href="https://weseed.ir" target="_blank" title="Seed investment platform."><strong>weseed.ir 🔗</strong></a>
-        <a class="box" href="https://telebank.live" target="_blank" title="Decentralized telecom-bank project."><strong>telebank.live 🔗</strong></a>
-        <a class="box" href="https://tardiwallet.com" target="_blank" title="Secure crypto wallet infrastructure."><strong>tardiwallet.com 🔗</strong></a>
-        <a class="box" href="https://steellet.com" target="_blank" title="Smart payment wearables."><strong>steellet.com 🔗</strong></a>
-        <a class="box" href="https://rialchange.com" target="_blank" title="Crypto rial gateway."><strong>rialchange.com 🔗</strong></a>
-        <a class="box" href="https://metabank.live" target="_blank" title="Next-gen Web3 bank."><strong>metabank.live 🔗</strong></a>
-        <a class="box" href="https://luxiv.io" target="_blank" title="Luxury tokenized assets."><strong>luxiv.io 🔗</strong></a>
-        <a class="box" href="https://hoopaad.com" target="_blank" title="Culture-tech incubation."><strong>hoopaad.com 🔗</strong></a>
-        <a class="box" href="https://halalfi.ir" target="_blank" title="Sharia-compliant DeFi."><strong>halalfi.ir 🔗</strong></a>
-        <a class="box" href="https://cid.chat" target="_blank" title="Web3 private messenger."><strong>cid.chat 🔗</strong></a>
-        <a class="box" href="#" title="Wearable crypto accessories."><strong>_Smart_Wearables</strong></a>
-        <a class="box" href="#" title="Supply Chain Finance DAO."><strong>_SCF</strong></a>
-        <a class="box" href="#" title="Islamic blockchain fund."><strong>_AL_MIZAN</strong></a>
-        <a class="box" href="#" title="Treasury governance project."><strong>_SATRAP</strong></a>
-        <a class="box" href="#" title="Futuristic Web3 research."><strong>_The_Future_Institute</strong></a>
-        <a class="box" href="#" title="Blockchain-based accounting tools."><strong>_Blockchain_Accounting</strong></a>
-      </div>
-    </section>
+  <section id="founderships">
+    <h2 id="title-founderships">Founderships</h2>
+    <div class="grid">
+      <a class="box" href="https://weseed.ir" target="_blank" title="Seed investment platform."><strong>weseed.ir 🔗</strong></a>
+      <a class="box" href="https://telebank.live" target="_blank" title="Decentralized telecom-bank project."><strong>telebank.live 🔗</strong></a>
+      <a class="box" href="https://tardiwallet.com" target="_blank" title="Secure crypto wallet infrastructure."><strong>tardiwallet.com 🔗</strong></a>
+      <a class="box" href="https://steellet.com" target="_blank" title="Smart payment wearables."><strong>steellet.com 🔗</strong></a>
+      <a class="box" href="https://rialchange.com" target="_blank" title="Crypto rial gateway."><strong>rialchange.com 🔗</strong></a>
+      <a class="box" href="https://metabank.live" target="_blank" title="Next-gen Web3 bank."><strong>metabank.live 🔗</strong></a>
+      <a class="box" href="https://luxiv.io" target="_blank" title="Luxury tokenized assets."><strong>luxiv.io 🔗</strong></a>
+      <a class="box" href="https://hoopaad.com" target="_blank" title="Culture-tech incubation."><strong>hoopaad.com 🔗</strong></a>
+      <a class="box" href="https://halalfi.ir" target="_blank" title="Sharia-compliant DeFi."><strong>halalfi.ir 🔗</strong></a>
+      <a class="box" href="https://cid.chat" target="_blank" title="Web3 private messenger."><strong>cid.chat 🔗</strong></a>
+    </div>
+  </section>
 
-    <section id="partnerships">
-      <h2 id="title-partnerships">Partnerships</h2>
-      <div class="grid">
-        <a class="box" href="#" title="Transport & Infrastructure News Network."><strong>TINN.IR</strong></a>
-        <a class="box" href="#" title="Business projects in Oman."><strong>Oman</strong></a>
-        <a class="box" href="#" title="Strategic advisor."><strong>Mr. Inanlui</strong></a>
-        <a class="box" href="#" title="Virtual land and real-world meta assets."><strong>MetaReal</strong></a>
-        <a class="box" href="#" title="Iran Chamber of Commerce partner."><strong>ICC</strong></a>
-        <a class="box" href="#" title="International Holding partner."><strong>GEO Holding</strong></a>
-        <a class="box" href="#" title="Digital carpet ecosystem."><strong>Farsh Online</strong></a>
-        <a class="box" href="#" title="RWA-based blockchain network."><strong>DayaChain</strong></a>
-        <a class="box" href="#" title="Web3 banking unit."><strong>BitBank</strong></a>
-      </div>
-    </section>
+  <section id="partnerships">
+    <h2 id="title-partnerships">Partnerships</h2>
+    <div class="grid">
+      <a class="box" href="#" title="Transport & Infrastructure News Network."><strong>TINN.IR</strong></a>
+      <a class="box" href="#" title="Business projects in Oman."><strong>Oman</strong></a>
+      <a class="box" href="#" title="Strategic advisor."><strong>Mr. Inanlui</strong></a>
+      <a class="box" href="#" title="Virtual land and real-world meta assets."><strong>MetaReal</strong></a>
+      <a class="box" href="#" title="Iran Chamber of Commerce partner."><strong>ICC</strong></a>
+      <a class="box" href="#" title="International Holding partner."><strong>GEO Holding</strong></a>
+      <a class="box" href="#" title="Digital carpet ecosystem."><strong>Farsh Online</strong></a>
+      <a class="box" href="#" title="RWA-based blockchain network."><strong>DayaChain</strong></a>
+      <a class="box" href="#" title="Web3 banking unit."><strong>BitBank</strong></a>
+    </div>
+  </section>
 
-    <section id="about">
-      <h2 id="title-about">About MoneyLab</h2>
-      <p id="about-text">MoneyLab is a venture studio building crypto-native infrastructure, startups, and digital public goods.</p>
-    </section>
+  <section id="about">
+    <h2 id="title-about">About MoneyLab</h2>
+    <p id="about-text">MoneyLab is a venture studio building crypto-native infrastructure, startups, and digital public goods.</p>
+  </section>
 
-    <section id="contact">
-      <h2 id="title-contact">Contact</h2>
-      <p>Email: hello@moneylab.finance</p>
-    </section>
+  <section id="contact">
+    <h2 id="title-contact">Contact</h2>
+    <p>Email: hello@moneylab.finance</p>
+  </section>
 
-    <footer>
-      &copy; 2012–2025 <span id="footer-brand">MoneyLab.Finance</span>. All rights reserved.
-    </footer>
-  </div>
+  <footer>
+    &copy; 2012–2025 <span id="footer-brand">MoneyLab.Finance</span>. All rights reserved.
+  </footer>
+</div>
 
-  <script>
-    const translations = {
-      en: {
-        nav_home: "Home", nav_founders: "Founderships", nav_partners: "Partnerships", nav_about: "About", nav_contact: "Contact",
-        header_title: "MoneyLab.Finance",
-        header_description: "Since 2012, we’ve been building foundational tools and platforms in crypto, blockchain, and digital finance.",
-        title_founderships: "Founderships",
-        title_partnerships: "Partnerships",
-        title_about: "About MoneyLab",
-        about_text: "MoneyLab is a venture studio building crypto-native infrastructure, startups, and digital public goods.",
-        title_contact: "Contact",
-        footer_brand: "MoneyLab.Finance"
-      },
-      fa: {
-        nav_home: "خانه", nav_founders: "تأسیسات", nav_partners: "همکاری‌ها", nav_about: "درباره", nav_contact: "ارتباط",
-        header_title: "مانی‌لب", header_description: "از سال ۲۰۱۲ در حال توسعه زیرساخت‌های کریپتو و پلتفرم‌های مالی غیرمتمرکز هستیم.",
-        title_founderships: "تأسیسات", title_partnerships: "همکاری‌ها", title_about: "درباره مانی‌لب",
-        about_text: "مانی‌لب یک استودیوی راه‌اندازی برای زیرساخت‌ها و استارت‌آپ‌های بومی وب۳ است.",
-        title_contact: "تماس", footer_brand: "مانی‌لب"
-      },
-      ar: {
-        nav_home: "الرئيسية", nav_founders: "المشاريع التأسيسية", nav_partners: "الشراكات", nav_about: "حول", nav_contact: "اتصال",
-        header_title: "ماني لاب", header_description: "منذ 2012 نبني أدوات ومنصات تمويل رقمية ولامركزية.",
-        title_founderships: "المشاريع التأسيسية", title_partnerships: "الشراكات", title_about: "حول ماني لاب",
-        about_text: "ماني لاب هو استوديو بناء مشاريع ويب ٣ وبنية تحتية أصلية للعملات المشفرة.",
-        title_contact: "اتصال", footer_brand: "ماني لاب"
-      }
-    };
-
-    function changeLanguage(lang) {
-      for (const key in translations[lang]) {
-        const el = document.getElementById(key);
-        if (el) el.innerText = translations[lang][key];
-      }
-      document.documentElement.lang = lang;
-      document.body.dir = (lang === 'fa' || lang === 'ar') ? 'rtl' : 'ltr';
+<script>
+  const translations = {
+    en: {
+      nav_home: "Home", nav_founders: "Founderships", nav_partners: "Partnerships", nav_about: "About", nav_contact: "Contact",
+      header_title: "MoneyLab.Finance",
+      header_description: "Since 2012, we’ve been building foundational tools and platforms in crypto, blockchain, and digital finance.",
+      title_founderships: "Founderships", title_partnerships: "Partnerships", title_about: "About MoneyLab",
+      about_text: "MoneyLab is a venture studio building crypto-native infrastructure, startups, and digital public goods.",
+      title_contact: "Contact", footer_brand: "MoneyLab.Finance"
+    },
+    fa: {
+      nav_home: "خانه", nav_founders: "پروژه‌های بنیان‌گذاری", nav_partners: "همکاری‌ها", nav_about: "درباره", nav_contact: "تماس",
+      header_title: "مانی‌لب", header_description: "از سال ۲۰۱۲، ما در حال ساخت ابزارها و پلتفرم‌های بنیادین در حوزهٔ رمز‌ارز، بلاکچین، و مالی دیجیتال بوده‌ایم.",
+      title_founderships: "پروژه‌های تأسیسی", title_partnerships: "شرکای تجاری", title_about: "درباره‌ی مانی‌لب",
+      about_text: "مانی‌لب یک استودیوی نوآفرینی است که زیرساخت‌های بومی رمزارز، استارتاپ‌ها و کالاهای عمومی دیجیتال را توسعه می‌دهد.",
+      title_contact: "تماس با ما", footer_brand: "مانی‌لب"
+    },
+    ar: {
+      nav_home: "الرئيسية", nav_founders: "المشاريع التأسيسية", nav_partners: "الشراكات", nav_about: "حول", nav_contact: "اتصال",
+      header_title: "ماني لاب", header_description: "منذ عام 2012، نقوم ببناء أدوات ومنصات أساسية في مجال التشفير والبلوكشين والتمويل الرقمي.",
+      title_founderships: "المشاريع المؤسسة", title_partnerships: "الشراكات", title_about: "حول ماني لاب",
+      about_text: "ماني لاب هو استوديو مشاريع يقوم بتطوير بنية تحتية أصلية للعملات الرقمية والشركات الناشئة والسلع العامة الرقمية.",
+      title_contact: "تواصل معنا", footer_brand: "ماني لاب"
     }
+  };
 
-    function scrollToSection(id) {
-      const section = document.getElementById(id);
-      if (section) section.scrollIntoView({ behavior: 'smooth' });
+  const tooltips = {
+    en: {
+      "weseed.ir": "Seed investment platform.",
+      "telebank.live": "Decentralized telecom-bank project.",
+      "tardiwallet.com": "Secure crypto wallet infrastructure.",
+      "steellet.com": "Smart payment wearables.",
+      "rialchange.com": "Crypto rial gateway.",
+      "metabank.live": "Next-gen Web3 bank.",
+      "luxiv.io": "Luxury tokenized assets.",
+      "hoopaad.com": "Culture-tech incubation.",
+      "halalfi.ir": "Sharia-compliant DeFi.",
+      "cid.chat": "Web3 private messenger."
+    },
+    fa: {
+      "weseed.ir": "پلتفرم سرمایه‌گذاری بذری.",
+      "telebank.live": "پروژه‌ی بانک-تلکام غیرمتمرکز.",
+      "tardiwallet.com": "زیرساخت کیف‌پول امن رمزارز.",
+      "steellet.com": "پوشیدنی‌های پرداخت هوشمند.",
+      "rialchange.com": "درگاه رمزریال و تبادل ارز.",
+      "metabank.live": "بانک نسل بعدی مبتنی بر وب۳.",
+      "luxiv.io": "توکنیزاسیون دارایی‌های لوکس.",
+      "hoopaad.com": "شتابدهنده فرهنگ و تکنولوژی.",
+      "halalfi.ir": "دستگاه‌های دیفای مطابق شریعت.",
+      "cid.chat": "پیام‌رسان خصوصی مبتنی بر وب۳."
+    },
+    ar: {
+      "weseed.ir": "منصة استثمار مبكر.",
+      "telebank.live": "مشروع بنك واتصالات لامركزي.",
+      "tardiwallet.com": "بنية آمنة لمحفظة التشفير.",
+      "steellet.com": "أجهزة قابلة للارتداء للدفع الذكي.",
+      "rialchange.com": "بوابة تبادل الريال المشفر.",
+      "metabank.live": "بنك ويب ٣ الجيل القادم.",
+      "luxiv.io": "رمزنة الأصول الفاخرة.",
+      "hoopaad.com": "حاضنة الثقافة والتكنولوجيا.",
+      "halalfi.ir": "تمويل لامركزي متوافق مع الشريعة.",
+      "cid.chat": "مراسلة خاصة تعتمد على Web3."
     }
-  </script>
+  };
+
+  function updateTooltips(lang) {
+    const links = document.querySelectorAll("a.box");
+    links.forEach(link => {
+      const host = new URL(link.href).hostname.replace("www.", "");
+      if (tooltips[lang] && tooltips[lang][host]) {
+        link.title = tooltips[lang][host];
+      }
+    });
+  }
+
+  function changeLanguage(lang) {
+    for (const key in translations[lang]) {
+      const el = document.getElementById(key);
+      if (el) el.innerText = translations[lang][key];
+    }
+    document.documentElement.lang = lang;
+    document.body.dir = (lang === 'fa' || lang === 'ar') ? 'rtl' : 'ltr';
+    updateTooltips(lang);
+  }
+
+  window.onload = () => updateTooltips("en");
+</script>
 
 </body>
 </html>
