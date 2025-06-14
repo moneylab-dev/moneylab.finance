@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HalalFi - The Halal DeFi Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comfortaa', sans-serif;
+      background-color: #fff;
+      color: #1f2d1c;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 1px solid #eee;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+    nav a {
+      margin: 0 12px;
+      text-decoration: none;
+      color: #1f2d1c;
+      font-weight: bold;
+    }
+    .lang-switcher {
+      margin-left: 20px;
+    }
+    .lang-switcher select {
+      padding: 5px;
+      font-family: 'Comfortaa', sans-serif;
+      font-size: 0.9rem;
+    }
+    .hero {
+      padding: 60px 40px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      color: #155c39;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 20px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero button {
+      margin-top: 30px;
+      padding: 12px 24px;
+      background-color: #155c39;
+      color: #fff;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .section {
+      padding: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: center;
+      border-bottom: 1px solid #eee;
+    }
+    .feature {
+      max-width: 300px;
+    }
+    .feature h3 {
+      color: #155c39;
+    }
+    .newsletter {
+      padding: 40px;
+      text-align: center;
+    }
+    .newsletter input[type="email"] {
+      padding: 10px;
+      width: 250px;
+      font-size: 1rem;
+      margin-right: 10px;
+    }
+    .newsletter button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #155c39;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    footer {
+      text-align: center;
+      padding: 40px;
+      font-size: 0.9rem;
+      background: #f8f8f8;
+    }
+    .contact ul {
+      list-style: none;
+      padding: 0;
+    }
+    .contact li {
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="halalfi-logo.png" alt="HalalFi Logo">
+      <strong>HalalFi</strong>
+    </div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#features">Features</a>
+      <a href="#token">Token</a>
+      <a href="#team">Team</a>
+      <a href="#join">Join</a>
+      <span class="lang-switcher">
+        <label for="lang-select" hidden>Language</label>
+        <select id="lang-select" onchange="changeLang(this.value)">
+  <option value="en" selected>English</option>
+  <option value="fa">فارسی</option>
+  <option value="ar">العربية</option>
+  <option value="tr">Türkçe</option>
+  <option value="id">Bahasa Indonesia</option>
+  <option value="ur">اردو</option>
+  <option value="fr">Français</option>
+  <option value="sw">Kiswahili</option>
+  <option value="ru">Русский</option>
+  <option value="ms">Bahasa Melayu</option>
+</select>
+      </span>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>The Halal Decentralized Finance Platform</h1>
+    <p>HalalFi provides a suite of innovative DeFi solutions that comply with Islamic finance principles, enabling ethical investment opportunities for the global Muslim community.</p>
+    <button>Get Started</button>
+  </section>
+
+  <section class="section" id="about">
+    <div class="feature">
+      <h3>About HalalFi</h3>
+      <p>HalalFi is a next-generation decentralized finance (DeFi) platform built for the global Muslim community. Our mission is to offer blockchain-powered financial services that comply with Islamic principles—free from Riba (interest), Gharar (ambiguity), and unethical speculation.</p>
+      <p>By integrating Shariah-compliant protocols with modern Web3 tools, HalalFi enables transparent, ethical, and inclusive financial participation across borders.</p>
+    </div>
+  </section>
+
+  <section class="section" id="features">
+    <div class="feature">
+      <h3>Features & Services</h3>
+      <ul>
+        <li>Shariah-compliant lending and borrowing</li>
+        <li>Halal yield farming opportunities</li>
+        <li>Decentralized exchange (DEX)</li>
+        <li>Zakat management system</li>
+      </ul>
+    </div>
+    <div class="feature" id="token">
+      <h3>HALAL Token Utility</h3>
+      <p>HALAL token is the cornerstone of the HalalFi ecosystem. It is used for governance, staking rewards, and accessing various platform services.</p>
+    </div>
+  </section>
+
+  <section class="section" id="team">
+    <div class="feature">
+      <h3>Team & Scholars</h3>
+      <p>An experienced team of Islamic finance scholars and blockchain experts ensuring Halal compliance and tech innovation.</p>
+    </div>
+    <div class="feature" id="join">
+      <h3>Join or Partner</h3>
+      <p>Explore collaboration or investment opportunities. Join our mission or contact the team to participate.</p>
+    </div>
+  </section>
+
+  <section class="newsletter">
+    <h3>Subscribe to Our Newsletter</h3>
+    <p>Stay updated on the latest from HalalFi – project updates, articles, and exclusive features.</p>
+    <form action="#" method="post">
+      <input type="email" placeholder="Your email address" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <section class="section contact" id="contact">
+    <div class="feature">
+      <h3>Contact Us</h3>
+      <p>If you have any questions, partnership proposals, or media inquiries, reach out to us directly.</p>
+      <ul>
+        <li><strong>Email:</strong> info@halalfi.ir</li>
+        <li><strong>Telegram:</strong> @HalalFiProject</li>
+        <li><strong>Twitter:</strong> <a href="https://twitter.com/HalalFi">@HalalFi</a></li>
+        <li><strong>Instagram:</strong> <a href="https://instagram.com/HalalFi">@HalalFi</a></li>
+        <li><strong>Location:</strong> Tbilisi, Georgia</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <p>Contact us with any questions or inquiries • © 2025 HalalFi</p>
+  </footer>
+
+  <script>
+    function changeLang(lang) {
+      alert('Multilingual content coming soon. You selected: ' + lang);
+    }
+  </script>
+</body>
+</html>
