@@ -1,306 +1,56 @@
-<!doctype html>
-<html lang="fa" dir="rtl">
+<!DOCTYPE html>
+<html lang="fa">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>MoneyLab.Finance — استودیو وب۳</title>
-  <meta name="description" content="MoneyLab — استودیوی راه‌اندازی و رشد پروژه‌های وب۳ و کریپتو. Founderships, Partnerships, Advisory."/>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      /* Palette inspired by soheil.info/tokenfactory (dark + orange accents) */
-      --bg:#0a0d12;           /* page background */
-      --bg-soft:#0f131a;      /* section background */
-      --surface:#131925;      /* cards */
-      --text:#eaf0ff;         /* main text */
-      --muted:#9aa7bd;        /* secondary text */
-      --primary:#ff7a18;      /* orange accent */
-      --primary-2:#ffa54d;    /* lighter orange */
-      --accent:#00d2ff;       /* cyan accent */
-      --success:#33d17a;
-      --warning:#ffd166;
-      --error:#ff5d5d;
-      --stroke:rgba(255,255,255,.09);
-      --glass:rgba(255,255,255,.04);
-      --blur:14px; --radius:20px;
-      --shadow-lg:0 20px 60px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.03);
-      --gradient: conic-gradient(from 220deg at 50% 50%, rgba(255,122,24,.18), rgba(0,210,255,.18), rgba(255,122,24,.18));
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; font-family:'Vazirmatn',ui-sans-serif,system-ui; letter-spacing:.2px;
-      color:var(--text); background:
-        radial-gradient(800px 600px at 100% 0%, rgba(255,122,24,.06), transparent 60%),
-        radial-gradient(900px 500px at 0% 100%, rgba(0,210,255,.06), transparent 60%),
-        var(--bg);
-      overflow-x:hidden;
-    }
-    a{color:inherit; text-decoration:none}
-    .container{width:min(1200px,92%); margin-inline:auto}
-
-    /* Header */
-    .nav{
-      position:sticky; top:0; z-index:50; backdrop-filter:saturate(140%) blur(10px);
-      background:linear-gradient(180deg, rgba(10,13,18,.9), rgba(10,13,18,.55));
-      border-bottom:1px solid var(--stroke);
-    }
-    .nav-inner{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 0}
-    .brand{display:flex; align-items:center; gap:12px; font-weight:800}
-    .logo{width:36px; height:36px; border-radius:12px; background:linear-gradient(135deg,var(--primary),#ff4d00); display:grid; place-items:center; color:#0b0f14; font-weight:800}
-    .menu{display:flex; gap:18px; align-items:center}
-    .menu a{color:var(--muted); font-weight:600; padding:10px 12px; border-radius:12px; transition:.2s}
-    .menu a:hover{color:var(--text); background:var(--glass);}
-    .cta{display:flex; gap:10px; align-items:center}
-    .btn{border:1px solid var(--stroke); background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); color:var(--text);
-      padding:10px 14px; border-radius:14px; font-weight:700; box-shadow:var(--shadow-lg); transition:.2s; position:relative; overflow:hidden}
-    .btn:hover{transform:translateY(-2px)}
-    .btn-primary{border-color:rgba(255,122,24,.35); background:linear-gradient(180deg, rgba(255,122,24,.25), rgba(255,122,24,.12));}
-    .btn-primary .glow{position:absolute; inset:-1px; border-radius:inherit; background:radial-gradient(400px 120px at 50% -40%, rgba(255,165,77,.45), transparent 60%); pointer-events:none}
-
-    /* Hero */
-    .hero{padding:70px 0 30px}
-    .hero .grid{display:grid; grid-template-columns:1.1fr .9fr; gap:28px; align-items:center}
-    .pill{display:inline-flex; align-items:center; gap:10px; padding:6px 10px; border-radius:14px; border:1px dashed var(--stroke); color:var(--muted); background:rgba(255,255,255,.02)}
-    .gradient-title{font-size:48px; line-height:1.15; margin:16px 0; font-weight:900; letter-spacing:.3px;
-      background:linear-gradient(180deg, #fff, #cdd7ff); -webkit-background-clip:text; background-clip:text; color:transparent}
-    .title-accent{background:linear-gradient(90deg, var(--primary), var(--primary-2)); -webkit-background-clip:text; background-clip:text; color:transparent}
-    .lead{font-size:16px; color:var(--muted)}
-    .hero-cta{display:flex; gap:12px; margin-top:20px; flex-wrap:wrap}
-
-    .hero-card{position:relative; border-radius:var(--radius); padding:24px; background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid var(--stroke); box-shadow:var(--shadow-lg)}
-    .hero-card:before{content:""; position:absolute; inset:-1px; border-radius:inherit; background:var(--gradient); filter:blur(40px); opacity:.35; z-index:-1}
-    .stat{display:flex; align-items:center; gap:12px; padding:12px 14px; border-radius:14px; background:rgba(255,255,255,.03); border:1px solid var(--stroke)}
-
-    /* Sections */
-    section{padding:64px 0}
-    .section-title{font-weight:900; font-size:28px; margin:0 0 14px}
-    .section-sub{color:var(--muted); margin:0 0 28px}
-
-    /* Features grid */
-    .features{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid var(--stroke); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow-lg); position:relative; overflow:hidden}
-    .card .badge{display:inline-flex; align-items:center; gap:8px; font-weight:800; color:#0b0f14; background:linear-gradient(135deg,var(--primary),#ff4d00); padding:6px 10px; border-radius:999px}
-    .card p{color:var(--muted); margin:10px 0 0}
-    .card .corner{position:absolute; inset:auto 10px 10px auto; width:44px; height:44px; border-radius:12px; background:radial-gradient(32px 18px at 50% 0%, rgba(255,165,77,.6), transparent 70%); opacity:.35}
-
-    /* Marquee */
-    .marquee{display:flex; overflow:hidden; border:1px solid var(--stroke); border-radius:16px; background:rgba(255,255,255,.02)}
-    .marquee-track{display:flex; gap:36px; padding:12px 18px; animation:scroll 24s linear infinite; white-space:nowrap}
-    .tag{padding:8px 12px; border-radius:999px; background:rgba(255,122,24,.12); border:1px solid rgba(255,122,24,.3); color:#ffd3b0; font-weight:700}
-    @keyframes scroll{from{transform:translateX(0)} to{transform:translateX(-50%)}}
-
-    /* CTA strip */
-    .cta-strip{display:flex; align-items:center; justify-content:space-between; gap:18px; padding:18px; border:1px solid var(--stroke); border-radius:18px; background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02))}
-
-    /* Footer */
-    footer{padding:40px 0 60px; color:var(--muted)}
-    .foot{display:flex; flex-wrap:wrap; gap:18px; align-items:center; justify-content:space-between}
-    .foot small{opacity:.8}
-
-    /* Responsive */
-    @media (max-width:900px){
-      .hero .grid{grid-template-columns:1fr}
-      .features{grid-template-columns:1fr 1fr}
-    }
-    @media (max-width:640px){
-      .gradient-title{font-size:34px}
-      .features{grid-template-columns:1fr}
-      .cta-strip{flex-direction:column; align-items:flex-start}
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <title>MoneyLab.Finance – Web3 Business Studio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Header -->
-  <header class="nav">
-    <div class="container nav-inner">
-      <div class="brand">
-        <div class="logo">₿</div>
-        <div>MoneyLab<span style="color:var(--primary)">.finance</span></div>
-      </div>
-      <nav class="menu">
-        <a href="#founderships">Founderships</a>
-        <a href="#partnerships">Partnerships</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <div class="cta">
-        <a class="btn" href="#tokenfactory">TokenFactory</a>
-        <a class="btn btn-primary" href="#contact">
-          <span>همکاری</span>
-          <span class="glow"></span>
-        </a>
-      </div>
+    <div class="main">
+        <header id="home">
+            <h1 id="header_title" class="english-text">MoneyLab.Finance</h1>
+            <p id="header_description" class="english-text">Since 2012, we have been building fundamental tools and platforms in the field of cryptocurrencies, blockchain, and digital finance.</p>
+        </header>
+
+        <section id="founderships">
+            <h2 id="title_founderships">Our Startups</h2>
+            <div class="grid">
+                <a class="box" href="https://raakh.org" target="_blank"><strong>raakh.org</strong></a>
+                <a class="box" href="https://weseed.ir" target="_blank"><strong>weseed.ir</strong></a>
+                <a class="box" href="https://telebank.live" target="_blank"><strong>telebank.live</strong></a>
+                <a class="box" href="https://tardiwallet.com" target="_blank"><strong>tardiwallet.com</strong></a>
+                <a class="box" href="https://steellet.com" target="_blank"><strong>steellet.com</strong></a>
+                <a class="box" href="https://rialchange.com" target="_blank"><strong>rialchange.com</strong></a>
+                <a class="box" href="https://app.metabank.live" target="_blank"><strong>metabank.live</strong></a>
+                <a class="box" href="https://luxiv.io" target="_blank"><strong>luxiv.io</strong></a>
+                <a class="box" href="https://hoopaad.com" target="_blank"><strong>hoopaad.com</strong></a>
+                <a class="box" href="https://moneylab.finance/halalfi" target="_blank"><strong>halalfi.ir</strong></a>
+            </div>
+        </section>
+
+        <section id="partnerships">
+            <h2 id="title_partnerships">Our Partnerships</h2>
+            <div class="grid">
+                <a class="box" href="#"><strong>TINN.IR</strong></a>
+                <a class="box" href="#"><strong>Oman</strong></a>
+                <a class="box" href="#"><strong>Mr. Inanlui</strong></a>
+                <a class="box" href="#"><strong>MetaReal</strong></a>
+                <a class="box" href="#"><strong>ICC</strong></a>
+                <a class="box" href="#"><strong>GEO Holding</strong></a>
+                <a class="box" href="#"><strong>Farsh Online</strong></a>
+                <a class="box" href="#"><strong>DayaChain</strong></a>
+            </div>
+        </section>
+
+        <footer>
+            © 2012–2025 <span id="footer_brand">MoneyLab.Finance</span>. All rights reserved.
+        </footer>
     </div>
-  </header>
 
-  <!-- Hero -->
-  <section class="hero container">
-    <div class="grid">
-      <div>
-        <span class="pill">استودیو ساخت و رشد پروژه‌های وب۳</span>
-        <h1 class="gradient-title">اینجا <span class="title-accent">ایده‌ها</span> به <span class="title-accent">پروژه‌های واقعی</span> تبدیل می‌شوند.</h1>
-        <p class="lead">MoneyLab روی ساخت محصول، مارکتینگ، جذب سرمایه‌گذار و راه‌اندازی توکنومیک تمرکز می‌کند. اگر تیم و ایده داری، ما صفر تا یک و بعدش رشدش می‌دیم.</p>
-        <div class="hero-cta">
-          <a class="btn btn-primary" href="#founderships">شروع همکاری</a>
-          <a class="btn" href="#partnerships">پارتنرشیپ</a>
-          <a class="btn" href="#tokenfactory">TokenFactory</a>
-        </div>
-        <div style="height:14px"></div>
-        <div class="hero-card">
-          <div style="display:flex; gap:12px; flex-wrap:wrap">
-            <div class="stat"><b>+12</b><span style="color:var(--muted)">پروژه لانچ‌شده</span></div>
-            <div class="stat"><b>$3.4M</b><span style="color:var(--muted)">TVL تجمعی</span></div>
-            <div class="stat"><b>9</b><span style="color:var(--muted)">پارتنر فعال</span></div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div class="hero-card" style="min-height:260px; display:grid; place-items:center; text-align:center">
-          <div>
-            <div class="badge" style="display:inline-flex; align-items:center; gap:8px; padding:6px 12px; border-radius:999px; background:rgba(255,122,24,.16); border:1px solid rgba(255,122,24,.35); color:#ffd3b0">Live</div>
-            <h3 style="margin:10px 0 6px">TokenFactory</h3>
-            <p class="lead">پورتال درخواست ساخت توکن + پنل ادمین برای تایید/رد.</p>
-            <div style="height:10px"></div>
-            <a class="btn btn-primary" href="#tokenfactory">رفتن به بخش توکن‌ها</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Partners marquee -->
-  <section class="container">
-    <div class="marquee" aria-label="partners">
-      <div class="marquee-track">
-        <span class="tag">Polygon</span>
-        <span class="tag">Solana</span>
-        <span class="tag">EVM</span>
-        <span class="tag">Arbitrum</span>
-        <span class="tag">Optimism</span>
-        <span class="tag">Base</span>
-        <span class="tag">XMTP</span>
-        <span class="tag">IPFS</span>
-        <span class="tag">Filecoin</span>
-        <span class="tag">—</span>
-        <span class="tag">Polygon</span>
-        <span class="tag">Solana</span>
-        <span class="tag">EVM</span>
-        <span class="tag">Arbitrum</span>
-        <span class="tag">Optimism</span>
-        <span class="tag">Base</span>
-        <span class="tag">XMTP</span>
-        <span class="tag">IPFS</span>
-        <span class="tag">Filecoin</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features -->
-  <section id="founderships" class="container">
-    <h2 class="section-title">Founderships — هم‌بنیان‌گذار شو</h2>
-    <p class="section-sub">اگر ایده‌ داری یا روی محصولت کار کردی، با ما به‌عنوان هم‌بنیان‌گذار جلو برو تا محصول، مارکتینگ، لانچ و جذب سرمایه را کنار هم انجام بدیم.</p>
-    <div class="features">
-      <div class="card">
-        <span class="badge">Product</span>
-        <h3>ساخت MVP تا لانچ</h3>
-        <p>از دیزاین و فرانت تا توکنومیک و اسمارت‌کانترکت‌ها، سریع و تمیز می‌سازیم.</p>
-        <div class="corner"></div>
-      </div>
-      <div class="card">
-        <span class="badge">Growth</span>
-        <h3>مارکتینگ و کامیونیتی</h3>
-        <p>کمپین، KOL، توییتر، دیسکورد و پلن رشد صفر تا یک.</p>
-        <div class="corner"></div>
-      </div>
-      <div class="card">
-        <span class="badge">Funding</span>
-        <h3>شبکه سرمایه‌گذار</h3>
-        <p>معرفی به سرمایه‌گذاران، دک، دیو دلیجنس و مذاکره.</p>
-        <div class="corner"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Partnerships -->
-  <section id="partnerships" class="container">
-    <h2 class="section-title">Partnerships — رشد و لانچ</h2>
-    <p class="section-sub">اکوسیستم و پارتنرها برای ما مهمه. اگر شبکه، محصول یا مخاطب داری، با هم هم‌افزایی می‌کنیم.</p>
-    <div class="cta-strip">
-      <div>
-        <h3 style="margin:0 0 6px">دنبال پارتنر فنی/مارکتینگی هستی؟</h3>
-        <p style="margin:0; color:var(--muted)">با MoneyLab روی لانچ/رشد محصولت کار کن؛ KPI محور.</p>
-      </div>
-      <a class="btn btn-primary" href="#contact">درخواست همکاری</a>
-    </div>
-  </section>
-
-  <!-- TokenFactory preview -->
-  <section id="tokenfactory" class="container">
-    <h2 class="section-title">TokenFactory — ساخت توکن با تایید ادمین</h2>
-    <p class="section-sub">کاربران درخواست ساخت توکن می‌فرستند؛ تنها ادمین با ولت تایید/رد می‌کند. (Decimals = 18)</p>
-
-    <div class="hero-card">
-      <form class="grid" style="grid-template-columns:1fr 1fr; gap:14px">
-        <label>
-          <div class="pill" style="margin-bottom:8px">نام توکن</div>
-          <input required placeholder="مثلاً RugSol" class="input"/>
-        </label>
-        <label>
-          <div class="pill" style="margin-bottom:8px">نماد</div>
-          <input required placeholder="RUG" class="input"/>
-        </label>
-        <label style="grid-column:1 / -1">
-          <div class="pill" style="margin-bottom:8px">توضیح کوتاه</div>
-          <input placeholder="یه توضیح مختصر درباره توکن" class="input"/>
-        </label>
-        <div style="display:flex; gap:10px; align-items:center; grid-column:1 / -1; flex-wrap:wrap">
-          <button type="button" class="btn">اتصال ولت</button>
-          <button type="submit" class="btn btn-primary">ارسال برای بررسی</button>
-          <span style="color:var(--muted)">وضعیت: <b>در انتظار اتصال ولت</b></span>
-        </div>
-      </form>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section id="about" class="container">
-    <h2 class="section-title">About — درباره MoneyLab</h2>
-    <p class="section-sub">ما یک استودیوی کریپتو-نیتیو هستیم که روی زیرساخت‌ها، ابزارها و محصولات مصرفی کار می‌کنه. تمرکز: UX، امنیت، و رشد پایدار.</p>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="container">
-    <h2 class="section-title">Contact — ارتباط</h2>
-    <div class="hero-card">
-      <form class="grid" style="grid-template-columns:1fr 1fr; gap:14px">
-        <input placeholder="نام" class="input"/>
-        <input placeholder="ایمیل یا تلگرام" class="input"/>
-        <textarea placeholder="چطور می‌تونیم کمک کنیم؟" class="input" style="grid-column:1 / -1; min-height:110px"></textarea>
-        <div style="grid-column:1 / -1; display:flex; gap:10px; align-items:center; flex-wrap:wrap">
-          <button class="btn btn-primary" type="submit">ارسال پیام</button>
-          <small style="color:var(--muted)">ما معمولاً ظرف ۲۴ ساعت جواب می‌دیم.</small>
-        </div>
-      </form>
-    </div>
-  </section>
-
-  <footer class="container">
-    <div class="foot">
-      <div class="brand"><div class="logo">₿</div>MoneyLab<span style="color:var(--primary)">.finance</span></div>
-      <small>© <span id="y"></span> MoneyLab. همه حقوق محفوظ است.</small>
-    </div>
-  </footer>
-
-  <style>
-    /* Inputs */
-    .input{width:100%; padding:12px 14px; border-radius:12px; border:1px solid var(--stroke); background:rgba(255,255,255,.02); color:var(--text); outline:none}
-    .input:focus{border-color:rgba(255,122,24,.5); box-shadow:0 0 0 4px rgba(255,122,24,.12)}
-  </style>
-
-  <script>
-    // tiny helpers
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+    <script src="script.js"></script>
 </body>
 </html>
